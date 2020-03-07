@@ -19,13 +19,24 @@ module.exports.getUserByUserName = function (username, callBack) {
 //Change Functions
 module.exports.addUser = function (newUser, callBack) {
     bcrypt.genSalt(10, (err, salt) => {
-        console.log("adding User " + newUser.name + " salt " + salt);
         bcrypt.hash(newUser.password, salt, (err, hash) => {
             if(err){console.log(err)};
-            console.log("Hashing password " + hash);
             newUser.password = hash;
             newUser.save(callBack);
         })
+    })
+}
+
+module.exports.deleteUser = (user, callBack) =>{
+    User.deleteOne({_id: user._id}).then(callBack(null, true));
+}
+
+module.exports.updateUser = (user, changes, callBack) =>{
+    Object.keys(changes).forEach((tochange)=>{
+        if(user[tochange] && changes[tochange] != ""){
+            user[tochange] = changes[tochange]
+            user.save(callBack)
+        }
     })
 }
 
@@ -37,7 +48,7 @@ module.exports.comparePassword = function (candidatePassword, hash, callBack){
     })
 }
 
-module.exports = function(passport){
+module.exports.passport = function(passport){
     let = opt = {};
     opt.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
     opt.secretOrKey = process.env.PASS_SECRET;

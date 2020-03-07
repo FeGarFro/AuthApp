@@ -61,7 +61,7 @@ router.post("/auth", (req, res, next) => {
                         id: user._id,
                         name: user.name,
                         username: user.username,
-                        username: user.email
+                        email: user.email
                     }
                 })
             }
@@ -69,5 +69,81 @@ router.post("/auth", (req, res, next) => {
         })
     })
 })
+
+router.post("/profile/delete", passport.authenticate('jwt', {session: false} ), (req, res, next) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    usersAPI.getUserByUserName(username, (err, user) =>{
+        if(err){return res.json({succsess: false, error: err})}
+        if(!user){ return res.json({succsess: false, msg:"User not found"})}
+        usersAPI.comparePassword(password, user.password, (err, isMatch) =>{
+            if(err){throw err}
+            if(isMatch){
+
+                usersAPI.deleteUser(user, (err, isDeleted) =>{
+                    if(err){throw err}
+                    if(isDeleted){
+                        res.json({
+                            succsess: true, 
+                            user:{
+                                id: user._id,
+                                name: user.name,
+                                username: user.username,
+                                email: user.email
+                            }
+                        })
+                    }
+                    else{res.json({succsess: false, msg:"Wrong Password"})}
+                })
+
+            }
+            else{res.json({succsess: false, msg:"Wrong Password"})}   
+
+        })
+    })
+})
+
+router.get("/profile/update", (req, res, next) => {
+    
+    const test = {
+        name: "felipe",
+        username: "fegar",
+        email: "blablabla",
+        password:"12345"
+    }
+
+    const change = {
+        username: "fegarfro"
+    }
+
+    Object.keys(change).forEach((toChange)=>{
+        test[toChange] = change[toChange];
+        res.json(test)
+    })
+
+})
+
+router.post("/profile/update", passport.authenticate('jwt', {session: false} ), (req, res, next) => {
+    const username = req.body.cred.username;
+    const password = req.body.cred.password;
+    const changes = req.body.changes;
+
+    usersAPI.getUserByUserName(username, (err, user) =>{
+        if(err){return res.json({succsess: false, error: err})}
+        if(!user){ return res.json({succsess: false, msg:"User not found"})}
+        usersAPI.comparePassword(password, user.password, (err, isMatch) =>{
+            if(err){throw err}
+            if(isMatch){
+                usersAPI.updateUser(user, changes, (err)=>{
+                    if(err){res.json({succsess: false, error: err})}
+                    res.json({succsess: true, msg:"User " + username + " updated to " + user.username})
+                })
+            }
+            else{res.json({succsess: false, msg:"Wrong Password"})}
+        })
+    })
+})
+
 
 module.exports = router;

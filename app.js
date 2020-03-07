@@ -8,7 +8,7 @@ require("dotenv/config");
 
 //API Modules
 const usersAPIRoutes = require("./routes/users")
-require("./API/usersAPI")(passport);
+require("./API/usersAPI").passport(passport);
 
 //app.js Initialize
 const app = express();
