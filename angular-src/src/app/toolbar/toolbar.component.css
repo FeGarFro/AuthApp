@@ -1,0 +1,17 @@
+.mat-toolbar {
+  width: 100%;
+}
+
+button{
+  margin: 0 5px;
+}
+
+.mat-menu-item{
+  margin: 0;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
