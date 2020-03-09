@@ -1,11 +1,22 @@
 .example-card {
-    margin-top: 10px;
+    margin: 10px;
+    max-height: 700px;
+    overflow-y: scroll;
   }
 
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
-  
-  .input{
-    width: 100%;}
+
+  .map {
+    margin-top: 10px;
+  }
+
+  table {
+    width: 100%;
+  }
+  .thumbCover{
+    background-image: url('https://lojasaraiva.vteximg.com.br/arquivos/ids/12104715/1008975660.jpg?v=637142231219470000');
+    background-size: cover;
+  }

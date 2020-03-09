@@ -12,7 +12,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FormsModule } from '@angular/forms';
+import {MatChipsModule} from '@angular/material/chips'; 
 
+
+import {MatTableModule} from '@angular/material/table'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,7 +56,11 @@ import { ProfileComponent } from './profile/profile.component';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    NgxChartsModule,
+    FormsModule,
+    MatChipsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

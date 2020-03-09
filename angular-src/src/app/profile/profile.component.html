@@ -1,82 +1,162 @@
 <div class="profileConteiner" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-around">
-<mat-card class="example-card" fxFlex="30" fxFlex.sm="90">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-
-        <mat-form-field class="input">
-          <mat-label>Name</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="input">
-            <mat-label>Username</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="input">
-            <mat-label>Email</mat-label>
-            <input matInput>
-          </mat-form-field>
-          <br>
-          <mat-form-field class="input">
-              <mat-label>Password</mat-label>
-              <input matInput>
-          </mat-form-field>
-          <br>
-            
-    <mat-card-content>
-      
-    </mat-card-content>
-
-    <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-evenly center">
-      <button mat-button color="accent">CANCEL</button>
-      <button mat-button color="primary">REGISTER</button>
-    </mat-card-actions>
-  </mat-card>
-
-  <div class="stats" fxLayout="column" fxLayoutAlign="space-around" fxFlex="60" >
-        <mat-card class="example-card">
+    <mat-card class="example-card"fxFlex="30" fxFlex.sm="90" fxLayout="column">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Shiba Inu</mat-card-title>
             <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>         
-        <mat-card-content>  
+            <span fxFlex></span>
+            <button mat-button color="primary">ARUALIZAR DADOS</button>
+        </mat-card-header>   
+
+        <mat-card-content fxLayout="column" fxLayoutAlign="space-around">
+            
+            <mat-chip-list class="tags" fxFlex fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+                <mat-chip>Bookworm</mat-chip>
+                <mat-chip>Librarian</mat-chip>
+                <mat-chip color="primary" selected>Verified</mat-chip>
+                <mat-chip color="accent" selected>Reviewer</mat-chip>
+            </mat-chip-list>
+
+            <img mat-card-image class="map" src="https://staticmapmaker.com/img/google.png">
+
         </mat-card-content>
-        <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-evenly center">
-            <button mat-button color="accent">CANCEL</button>
-            <button mat-button color="primary">REGISTER</button>
-        </mat-card-actions>
-        </mat-card>
+
+    </mat-card>
+
+    <mat-card class="example-card"fxFlex="30" fxFlex.sm="90" fxLayout="column">
+        <mat-card-header>
+            <mat-card-title>Biblioteca</mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>   
+
+        <mat-card-content>
+
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="thumbCover"></div>
+                    <mat-card-title>It: A coisa</mat-card-title>
+                    <mat-card-subtitle>Stephen King</mat-card-subtitle>
+                    <span fxFlex></span>
+                    <button mat-button color="warn">EXCLUIR</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">INFO</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">EMPRESTAR</button>
+                </mat-card-header>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="thumbCover"></div>
+                    <mat-card-title>It: A coisa</mat-card-title>
+                    <mat-card-subtitle>Stephen King</mat-card-subtitle>
+                    <span fxFlex></span>
+                    <button mat-button color="warn">EXCLUIR</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">INFO</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">EMPRESTAR</button>
+                </mat-card-header>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="thumbCover"></div>
+                    <mat-card-title>It: A coisa</mat-card-title>
+                    <mat-card-subtitle>Stephen King</mat-card-subtitle>
+                    <span fxFlex></span>
+                    <button mat-button color="warn">EXCLUIR</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">INFO</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">EMPRESTAR</button>
+                </mat-card-header>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="thumbCover"></div>
+                    <mat-card-title>It: A coisa</mat-card-title>
+                    <mat-card-subtitle>Stephen King</mat-card-subtitle>
+                    <span fxFlex></span>
+                    <button mat-button color="warn">EXCLUIR</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">INFO</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">EMPRESTAR</button>
+                </mat-card-header>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="thumbCover"></div>
+                    <mat-card-title>It: A coisa</mat-card-title>
+                    <mat-card-subtitle>Stephen King</mat-card-subtitle>
+                    <span fxFlex></span>
+                    <button mat-button color="warn">EXCLUIR</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">INFO</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">EMPRESTAR</button>
+                </mat-card-header>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="thumbCover"></div>
+                    <mat-card-title>It: A coisa</mat-card-title>
+                    <mat-card-subtitle>Stephen King</mat-card-subtitle>
+                    <span fxFlex></span>
+                    <button mat-button color="warn">EXCLUIR</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">INFO</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">EMPRESTAR</button>
+                </mat-card-header>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="thumbCover"></div>
+                    <mat-card-title>It: A coisa</mat-card-title>
+                    <mat-card-subtitle>Stephen King</mat-card-subtitle>
+                    <span fxFlex></span>
+                    <button mat-button color="warn">EXCLUIR</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">INFO</button>
+                    <span fxFlex></span>
+                    <button mat-button color="primary">EMPRESTAR</button>
+                </mat-card-header>
+            </mat-card>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <!-- <div class="stats" fxLayout="column" fxLayoutAlign="space-around" fxFlex="60" >
         <mat-card class="example-card">
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
                 <mat-card-title>Shiba Inu</mat-card-title>
                 <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>         
-            <mat-card-content>  
+            </mat-card-header>
+            <mat-card-content fxLayoutAlign="space-around center">
+                <ngx-charts-line-chart
+                    [view]="view"
+                    [scheme]="colorScheme"
+                    [legend]="legend"
+                    [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel"
+                    [xAxis]="xAxis"
+                    [yAxis]="yAxis"
+                    [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel"
+                    [timeline]="timeline"
+                    [results]="multi"
+                    >
+                </ngx-charts-line-chart>
             </mat-card-content>
-            <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-evenly center">
-                <button mat-button color="accent">CANCEL</button>
-                <button mat-button color="primary">REGISTER</button>
-            </mat-card-actions>
-            </mat-card>
-            <mat-card class="example-card">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Shiba Inu</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                </mat-card-header>         
-                <mat-card-content>  
-                </mat-card-content>
-                <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-evenly center">
-                    <button mat-button color="accent">CANCEL</button>
-                    <button mat-button color="primary">REGISTER</button>
-                </mat-card-actions>
-                </mat-card>
-  </div>
+        </mat-card>
+    </div> -->
 
-  </div>
+</div>
