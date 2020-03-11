@@ -8,26 +8,35 @@
       <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
 
-    <form #register="ngForm" class="input" fxLayout="column" fxLayoutAlign="space-around center">
+    <form #register="ngForm" [formGroup]="registerForm" class="input" fxLayout="column" fxLayoutAlign="space-around center">
       <mat-form-field class="input">
         <mat-label>Name</mat-label>
-        <input [(ngModel)]="name" name="name" matInput>
+        <input matInput required formControlName="name">
+        <mat-hint>Nome completo</mat-hint>
       </mat-form-field>
       <br>
       <mat-form-field class="input">
           <mat-label>Username</mat-label>
-          <input matInput [(ngModel)]="username" name="username" >
+          <input matInput required formControlName="username">
+          <mat-hint>Mínimo de 4 caracteres</mat-hint>
+          <mat-error *ngIf="registerForm.controls.username.invalid">Não contém 4 caracteres</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="input">
         <mat-label>Email</mat-label>
-        <input matInput [(ngModel)]="email" name="email" email>
-        <mat-error *ngIf="!email"> Validation</mat-error>
+        <input matInput required formControlName="email" email>
+        <mat-hint>Utilize um email válido que você tenha acesso</mat-hint>
+        <mat-error *ngIf="registerForm.controls.email.invalid" > Isto não é um email </mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="input">
           <mat-label>Password</mat-label>
-          <input matInput [(ngModel)]="password" name="password">
+          <input matInput required formControlName="password" type="password">
+          <mat-hint>A senha deverá ter no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula e 1 número</mat-hint>
+          <mat-error *ngIf="registerForm.controls.password.hasError('hasNumber')">Falta 1 número</mat-error>
+          <mat-error *ngIf="registerForm.controls.password.hasError('hasCapitalCase')">Falta 1 maiúscula</mat-error>
+          <mat-error *ngIf="registerForm.controls.password.hasError('hasSmallCase')">Falta 1 minúscula</mat-error>
+          <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">A senha deve ter 8 caracteres ou mais</mat-error>
       </mat-form-field>
       <br>
 
@@ -39,12 +48,11 @@
 
     <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-evenly center">
       <button mat-button
-      [routerLink]="['/']"
       routerLinkActive="router-link-active"
-      (click)="register.reset()"
+      (click)="registerForm.reset()"
       color="warn">
-      CANCEL</button>
-      <button mat-button (click)="onRegister(register)" color="primary">REGISTER</button>
+      LIMPAR</button>
+      <button mat-button [disabled]="!registerForm.valid" (click)="onRegister()" color="primary">REGISTRAR</button>
     </mat-card-actions>
 
   </mat-card>

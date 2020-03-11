@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ValidateService} from './services/validate.service'
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,7 +17,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormsModule } from '@angular/forms';
 import {MatChipsModule} from '@angular/material/chips'; 
-
 
 import {MatTableModule} from '@angular/material/table'; 
 import { AppRoutingModule } from './app-routing.module';
@@ -65,9 +65,10 @@ import { HomeComponent } from './home/home.component';
     NgxChartsModule,
     FormsModule,
     MatChipsModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule
   ],
-  providers: [ValidateService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

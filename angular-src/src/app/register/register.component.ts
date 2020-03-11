@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, NgForm} from '@angular/forms';
+import { FormBuilder, Validators, ValidationErrors, ValidatorFn, AbstractControl, PatternValidator }from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,28 +9,47 @@ import {FormControl, NgForm} from '@angular/forms';
 
 export class RegisterComponent implements OnInit {
 
-  name: String;
-  username: String;
-  email: String;
-  password: String;
+  registerForm = this.fb.group({
+    name: ['', [Validators.required]],
+    username: ['', [Validators.required, Validators.minLength(4)]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [
+      Validators.required, 
+      this.patternValidator(/\d/, { hasNumber: true }),
+      this.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+      this.patternValidator(/[a-z]/, { hasSmallCase: true }),
+      Validators.minLength(8)
+      ]
+    ]
+  })
 
-  constructor() { }
 
-  ngOnInit(): void {
+  patternValidator(regex: RegExp, error: ValidationErrors): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } => {
+      if (!control.value) {
+        // if control is empty return no error
+        return null;
+      }
+  
+      // test the value of the control against the regexp supplied
+      const valid = regex.test(control.value);
+  
+      // if true, return no error (no error), else return error passed in the second parameter
+      return valid ? null : error;
+    };
   }
 
-  onRegister(form: NgForm){
-    const user = form.value;
+  constructor(private fb: FormBuilder) { }
 
-    for (let [key, value] of Object.entries(user)){
-      if(value==undefined){
-        console.log(key + " missing")
-        return
-      }
-    }
+  ngOnInit(): void {
+    
+  }
 
-    //logic
+  onRegister(){
+
+    console.log(this.registerForm.value);
 
   }
 
 }
+
