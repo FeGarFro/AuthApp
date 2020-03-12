@@ -6,24 +6,38 @@
       <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
 
-        <mat-form-field class="input">
+    <form #register="ngForm" [formGroup]="loginForm" class="input" fxLayout="column" fxLayoutAlign="space-around center">
+      <mat-form-field class="input">
           <mat-label>Username</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="input">
-            <mat-label>Password</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <br>
-            
+          <input matInput required formControlName="username" required>
+          <mat-hint>Mínimo de 4 caracteres</mat-hint>
+          <mat-error *ngIf="loginForm.controls.username.invalid">O usuário deve conter 4 caracteres</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="input">
+          <mat-label>Password</mat-label>
+          <input matInput required formControlName="password" type="password" required>
+          <mat-hint>A senha contém no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula e 1 número</mat-hint>
+          <mat-error *ngIf="loginForm.controls.password.hasError('hasNumber')">Falta 1 número</mat-error>
+          <mat-error *ngIf="loginForm.controls.password.hasError('hasCapitalCase')">Falta 1 maiúscula</mat-error>
+          <mat-error *ngIf="loginForm.controls.password.hasError('hasSmallCase')">Falta 1 minúscula</mat-error>
+          <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">A senha deve ter 8 caracteres ou mais</mat-error>
+      </mat-form-field>
+      <br>
+
+    </form>
+
     <mat-card-content>
       
     </mat-card-content>
 
     <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-evenly center">
-      <button mat-button color="accent">CANCEL</button>
-      <button mat-button color="primary">LOGIN</button>
+      <button mat-button
+      (click)="loginForm.reset()"
+      color="warn">
+      LIMPAR</button>
+      <button mat-button [disabled]="!loginForm.valid" (click)="onLogin()" color="primary">ENTRAR</button>
     </mat-card-actions>
+
   </mat-card>
 </div>

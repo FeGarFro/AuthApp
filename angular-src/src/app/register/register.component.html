@@ -11,27 +11,27 @@
     <form #register="ngForm" [formGroup]="registerForm" class="input" fxLayout="column" fxLayoutAlign="space-around center">
       <mat-form-field class="input">
         <mat-label>Name</mat-label>
-        <input matInput required formControlName="name">
+        <input matInput required formControlName="name" required>
         <mat-hint>Nome completo</mat-hint>
       </mat-form-field>
       <br>
       <mat-form-field class="input">
           <mat-label>Username</mat-label>
-          <input matInput required formControlName="username">
+          <input matInput required formControlName="username" required>
           <mat-hint>Mínimo de 4 caracteres</mat-hint>
-          <mat-error *ngIf="registerForm.controls.username.invalid">Não contém 4 caracteres</mat-error>
+          <mat-error *ngIf="registerForm.controls.username.invalid">O usuário deve conter 4 caracteres</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="input">
         <mat-label>Email</mat-label>
-        <input matInput required formControlName="email" email>
+        <input matInput required formControlName="email" email required>
         <mat-hint>Utilize um email válido que você tenha acesso</mat-hint>
         <mat-error *ngIf="registerForm.controls.email.invalid" > Isto não é um email </mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="input">
           <mat-label>Password</mat-label>
-          <input matInput required formControlName="password" type="password">
+          <input matInput required formControlName="password" type="password" required>
           <mat-hint>A senha deverá ter no mínimo 8 caracteres, 1 letra maiúscula, 1 letra minúscula e 1 número</mat-hint>
           <mat-error *ngIf="registerForm.controls.password.hasError('hasNumber')">Falta 1 número</mat-error>
           <mat-error *ngIf="registerForm.controls.password.hasError('hasCapitalCase')">Falta 1 maiúscula</mat-error>
@@ -48,7 +48,6 @@
 
     <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-evenly center">
       <button mat-button
-      routerLinkActive="router-link-active"
       (click)="registerForm.reset()"
       color="warn">
       LIMPAR</button>

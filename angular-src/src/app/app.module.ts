@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ValidateService} from './services/validate.service'
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -41,7 +43,7 @@ import { HomeComponent } from './home/home.component';
     RegisterComponent,
     ProfileComponent,
     DashboardComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +68,10 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     MatChipsModule,
     MatTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ValidateService,MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
