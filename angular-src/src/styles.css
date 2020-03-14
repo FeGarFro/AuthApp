@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%;background-color: grey;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
-main{width: 100%;}
-app-profile{
-    width: 100%;
+html, body { 
+    height: 100%;;
+    background: rgb(2,0,36);
+    background: linear-gradient(308deg, rgba(2,0,36,1) 0%, rgba(181,120,0,1) 38%, rgba(116,77,0,1) 100%);  
+    overflow: hidden ;
 }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+app-root{height: 100%;width: 100%;}

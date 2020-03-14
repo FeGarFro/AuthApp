@@ -1,0 +1,56 @@
+.landingPage{
+    background: url("../../assets/homePic1.jpg") no-repeat center top fixed;
+    background-size: cover ;
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+}
+.welcome, .action{
+    max-width: 600px;
+}
+.welcome, .action button{
+    color: rgb(221, 221, 221)
+}
+.welcome{
+    font-family: 'Roboto';
+    font-size: 60px;
+    letter-spacing: 3px;
+    word-spacing: 3px;
+}
+
+.logo{
+    font-family: 'Lobster', cursive;
+    margin-top: 60px;
+}
+
+.action button{
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 0 10px;
+    border-color: rgb(221, 221, 221);
+}
+
+@media only screen and (max-width: 600px){
+
+    .welcome{
+        text-align: center;
+    }
+
+    .title{
+        font-size: 40px;
+    }
+
+    .landingPage{
+        background-position: -30vh 0vh;
+    }
+
+}
+
+
+@media only screen and (max-height: 400px){
+
+    .welcome, .action{
+        margin: 40px 0;
+    }
+    
+}

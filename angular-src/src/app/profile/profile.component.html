@@ -1,11 +1,15 @@
-<div class="profileContainer" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-around">
-    <mat-card class="example-card" fxFlex="30" fxFlex.sm="90" fxLayout="column">
-        <mat-card-header>
+<div class="profileContainer" fxLayout="row" fxLayoutAlign="space-around">
+    <mat-card class="example-card" fxLayout="column">
+        <mat-card-header fxLayout="row" fxLayoutAlign="space-between">
+
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Shiba Inu</mat-card-title> 
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            <span fxFlex></span>
-            <button mat-button color="primary">ARUALIZAR DADOS</button>
+            <mat-card-title *ngIf="profile">{{profile.name}}</mat-card-title> 
+            <mat-card-subtitle *ngIf="profile">{{profile.email}}</mat-card-subtitle>
+
+            <button mat-button color="primary">
+                <mat-icon>edit</mat-icon>
+            </button>
+
         </mat-card-header>   
 
         <mat-card-content fxLayout="column" fxLayoutAlign="space-around">
@@ -17,7 +21,20 @@
                 <mat-chip color="accent" selected>Reviewer</mat-chip>
             </mat-chip-list>
 
-            <img mat-card-image class="map" src="https://staticmapmaker.com/img/google.png">
+            <div class="profileActions" fxLayout="row wrap" fxLayoutAlign="space-around center">
+
+                <button mat-button (click)="logout()" color="accent" fxFlex="40">
+                    <mat-icon>person_outline</mat-icon>
+                    <span>SAIR</span>
+                </button>
+    
+                <button mat-button color="primary" color="warn" fxFlex="40">
+                    <mat-icon>delete</mat-icon>
+                    <span>EXCLUIR</span>
+                </button>
+
+            </div>
+            
 
         </mat-card-content>
 

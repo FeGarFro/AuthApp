@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ 
   onLogin(){
     this.userAPI.loginUser(this.loginForm.value).subscribe((data)=>{
       if(data['success']){

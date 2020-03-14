@@ -1,8 +1,16 @@
 .mat-toolbar {
+  background-color: #b57800;
   width: 100%;
+  padding: 2px;
 }
 
-button{
+h3{
+  font-family: 'Lobster', cursive;
+  letter-spacing: 3px;
+  font-size: 35px;
+}
+
+.navLinks button{
   margin: 0 5px;
 }
 
@@ -10,8 +18,8 @@ button{
   margin: 0;
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.mobileMenu{
+  display: none;
+  justify-content: center;
+  align-items: center;
 }

@@ -12,15 +12,9 @@ export class UserApiService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json'
+      'Content-Type':  'application/json',
+      'Authorization': 'my-auth-token'
     })
-  }
-
-  getUsers(){
-    const url = 'http://localhost:3000/API/users'
-    return this.http.get(url, this.httpOptions).pipe(
-      retry(3),
-      catchError((err) => { throw err }))
   }
 
   loginUser(userCred){
@@ -30,8 +24,16 @@ export class UserApiService {
       .pipe(retry(3))
   }
 
+  getProfile(){
+    const url = 'http://localhost:3000/API/users/profile'
+    let newHeaders = this.httpOptions.headers.set("Authorization", this.authToken).set("Content-Type", 'aplication/json')
+    return this.http.get(url, {headers: newHeaders})
+      .pipe(retry(3))
+  }
+
   logoutUser(){
-    localStorage.clear();
+    if(localStorage){localStorage.clear();}
+    else{console.log("localStorage is empty!")}
   }
 
   storageUser(token, user){

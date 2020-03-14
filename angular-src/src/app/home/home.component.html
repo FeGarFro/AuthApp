@@ -1,1 +1,24 @@
-<p>HOME</p>
+<div class="landingPage" fxLayout="column" fxLayoutAlign="space-between center">
+    
+    <div class="welcome" fxLayout="column" fxLayoutAlign="space-between center">
+        <span class="title">Bem-vindo ao    </span><span class="logo">  LivreO</span>
+    </div>
+
+    <div class="action" fxLayout="row" fxLayoutAlign="space-around center">
+        <button
+            mat-stroked-button
+            [routerLink]="['/register']"
+            routerLinkActive="router-link-active">
+            REGISTRAR
+        </button>
+
+        <button
+            mat-stroked-button
+            [routerLink]="['/login']"
+            routerLinkActive="router-link-active">
+            ENTRAR
+        </button>
+
+    </div>
+    
+</div>

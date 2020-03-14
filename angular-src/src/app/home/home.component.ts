@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserApiService } from '../services/userAPI.service';
-import { FlashMessageService } from '../services/flashMessage.service'
 
 
 @Component({
@@ -9,16 +7,9 @@ import { FlashMessageService } from '../services/flashMessage.service'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private userAPI: UserApiService, private flashMessage: FlashMessageService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userAPI.getUsers().subscribe(
-      (data)=>{console.log("DATA: " + data )},
-      (err)=>{
-        this.flashMessage.flashError(err['message'])
-        console.log(err)
-      }
     
-    )
   }
 }
