@@ -1,6 +1,7 @@
 .landingPage{
-    background: url("../../assets/homePic1.jpg") no-repeat center top fixed;
-    background-size: cover ;
+    background: url("../../assets/homePic4.jpg") no-repeat fixed;
+    background-size: cover;
+    background-position: center top;
     height: 100%;
     width: 100%;
     padding: 25px;

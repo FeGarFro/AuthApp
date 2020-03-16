@@ -1,7 +1,7 @@
 .mat-toolbar {
-  background-color: #b57800;
+  background-color: #1f1f1f;
   width: 100%;
-  padding: 2px;
+  padding: 5px;
 }
 
 h3{
@@ -9,7 +9,7 @@ h3{
   letter-spacing: 3px;
   font-size: 35px;
 }
-
+ 
 .navLinks button{
   margin: 0 5px;
 }
