@@ -13,7 +13,13 @@ require("./API/usersAPI").passport(passport);
 //app.js Initialize
 const app = express();
 const port = 3000;
-mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) =>{
+
+//Using MongoDB Atlas as a database
+dbUser = process.env.DB_USER
+dbPassword = process.env.DB_PASSWORD
+const databaseURL = `mongodb+srv://${dbUser}:${dbPassword}@authapp-rhycs.gcp.mongodb.net/Users?retryWrites=true&w=majority`
+
+mongoose.connect(databaseURL, { useNewUrlParser: true, useUnifiedTopology: true }, (err) =>{
   if(err){console.log(err)}
   else{console.log("Conected to DB")}
 });
