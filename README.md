@@ -38,9 +38,7 @@ the intention here is to be a generic authenticantion app so it can be used in d
  ##### GET
  There are only two get routes:
  1. **http://localhost:3000/API/users** that gets all users and has no paramaters besides **Content-Type application/json**. This route is only for debugging purpuses
- 1. **http://localhost:3000/API/users/profile** that needs an **Authorization** header with the JWT token created on login like this:
- 
- **Authorization JWT *code***
+ 1. **http://localhost:3000/API/users/profile** that needs an **Authorization** header with the JWT token created on login like this: **Authorization JWT *code***
  
  ##### POST
  First *POST* is on **http://localhost:3000/API/users/register** that registers a user using data from the request body as follows:
@@ -59,7 +57,7 @@ the intention here is to be a generic authenticantion app so it can be used in d
  Then comes login on **http://localhost:3000/API/users/auth**, the request body must be as follows:
    ```json 
      {
-  "username":"USERNAME"
+  "username":"USERNAME",
   "password":"PASSWORD"
   }
    ```
